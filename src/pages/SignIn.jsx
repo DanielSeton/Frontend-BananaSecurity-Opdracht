@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import {AuthContext} from "../context/AuthContext";
 
 function SignIn() {
+    const { handleLogin } = useContext(AuthContext);
+
   return (
     <>
       <h1>Inloggen</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
 
-      <form>
-        <p>*invoervelden*</p>
-        <button>Inloggen</button>
+      <form onSubmit={(e) => {e.preventDefault(); handleLogin();}}>
+          <div>
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="email" required />
+          </div>
+          <div>
+              <label for="password">Wachtwoord</label>
+              <input type="password" name="password" id="password" required />
+          </div>
+        <button
+            type="submit"
+            >Inloggen</button>
       </form>
 
       <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
