@@ -18,10 +18,9 @@ function NavBar() {
             </h3>
           </span>
         </Link>
-
-      {console.log(authenticated)}
       <div>
-        {authenticated ?
+          {console.log(authenticated)}
+        {authenticated.authenticated ?
             <button
                 type="button"
                 onClick={() => handleLogout()}
